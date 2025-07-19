@@ -45,6 +45,16 @@
 // Else-if computerCHoice is rock and humanChoice is scissors computer wins
 // Else the match is tied
 
+/* --------Step-5-------- */
+// Make a function "startRound"
+// Place humanChoice and computerChoice variable and playRound function-call inside it
+
+/* --------Step-6-------- */
+// Make a function "playGame"
+// Create a for-loop inside that function
+// the loop iterates five times calling startRound function for each iteration
+
+
 function getComputerChoice() {
   const randomValue = Math.floor(Math.random() * 3);
 
@@ -84,34 +94,48 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
+console.log('~| RESULT OF THE GAME |~')
+console.log(`*Starting score is = You: ${humanScore} | Computer: ${computerScore}*`);
 
 function playRound(humanChoice, computerChoice) {
-    console.log('| RESULT OF THE GAME |')
-    console.log(`Starting score is = You: ${humanScore} | Computer: ${computerScore}`);
 
     if (humanChoice == 'rock' && computerChoice == 'scissor'){
         humanScore++;
+        console.log('--You Won !!');
         console.log(`Current score is = You: ${humanScore} | Computer: ${computerScore}`);
     } else if (humanChoice == 'paper' && computerChoice == 'rock') {
         humanScore++;
+        console.log('--You Won !!');
         console.log(`Current score is = You: ${humanScore} | Computer: ${computerScore}`);
     } else if (humanChoice == 'scissor' && computerChoice == 'paper') {
         humanScore++;
+        console.log('--You Won !!');
         console.log(`Current score is = You: ${humanScore} | Computer: ${computerScore}`);
     } else if (humanChoice == 'rock' && computerChoice == 'paper') {
         computerScore++;
+        console.log('--Computer Won !!');
         console.log(`Current score is = You: ${humanScore} | Computer: ${computerScore}`);
     } else if (humanChoice == 'paper' && computerChoice == 'scissor') {
         computerScore++;
+        console.log('--Computer Won !!');
         console.log(`Current score is = You: ${humanScore} | Computer: ${computerScore}`);
     } else if (humanChoice == 'scissor' && computerChoice == 'rock') {
         computerScore++;
+        console.log('--Computer Won !!');
         console.log(`Current score is = You: ${humanScore} | Computer: ${computerScore}`);
     } else {
         console.log('This round resulted in a tie | No points for anyone.');
     }
 }
 
+function startRound() {
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+}
+
+function playGame() {
+    for (i = 0; i < 5; i++) {
+        startRound();
+    }
+}
