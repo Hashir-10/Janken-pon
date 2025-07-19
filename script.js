@@ -24,6 +24,7 @@
 /* --------Step-3-------- */
 // Create a variable named humanScore and initialize it with 0
 // Create a variable named computerScore and initialize it with 0
+// Log starting score into the console
 
 /* --------Step-4-------- */
 // Make a function "playRound"
@@ -68,6 +69,12 @@
 // Else-if user enters no then alert "Thanks for visiting , if you change your mind then refresh the page to play"
 // Else alert wrong input refresh the page to re-enter
 
+/* --------Step-9-------- */
+// Finally call the startGame function to start the game
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* --------Step-1-------- */
 
 function getComputerChoice() {
   const randomValue = Math.floor(Math.random() * 3);
@@ -84,6 +91,8 @@ function getComputerChoice() {
       break;
   }
 }
+
+/* --------Step-2-------- */
 
 function getHumanChoice() {
   var userChoice = prompt(
@@ -106,9 +115,13 @@ function getHumanChoice() {
   }
 }
 
+/* --------Step-3-------- */
+
 let humanScore = 0;
 let computerScore = 0;
 console.log(`*Starting score is = You: ${humanScore} | Computer: ${computerScore}*`);
+
+/* --------Step-4-------- */
 
 function playRound(humanChoice, computerChoice) {
 
@@ -141,17 +154,23 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+/* --------Step-5-------- */
+
 function startRound() {
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
 }
 
+/* --------Step-6-------- */
+
 function playGame() {
     for (i = 0; i < 5; i++) {
         startRound();
     }
 }
+
+/* --------Step-7-------- */
 
 function finalScore() {
     
@@ -163,6 +182,7 @@ function finalScore() {
         console.log('The match resulted in a draw. Try again !');
     }
 }
+/* --------Step-8-------- */
 
 function startGame() {
     var askToPlay = prompt('Heya visitor ! Wanna play a Janken-pon(rock-paper-scissors) game ? If so then enter "yes" below to start the game and if you are not in the mood enter "no". Good-luck !');
@@ -195,5 +215,6 @@ function startGame() {
     }
 }
 
+/* --------Step-9-------- */
 
 startGame();
