@@ -54,6 +54,20 @@
 // Create a for-loop inside that function
 // the loop iterates five times calling startRound function for each iteration
 
+/* --------Step-7-------- */
+// Make a function "finalScore"
+// Write a condition to evaulate final score
+// If humanScore is greater than computerScore log human won
+// Else-if computerScore is greater than computerScore log computer won
+// Else log This match is a draw, no one won
+
+/* --------Step-8-------- */
+// Make a "startGame" function
+// The function shall ask the user if he/she wants to play the game or not
+// If the user enters yes then start the game ask if he/she wants to play again if so then restart the game if no then stop 
+// Else-if user enters no then alert "Thanks for visiting , if you change your mind then refresh the page to play"
+// Else alert wrong input refresh the page to re-enter
+
 
 function getComputerChoice() {
   const randomValue = Math.floor(Math.random() * 3);
@@ -73,7 +87,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   var userChoice = prompt(
-    'Heya visitor ! Wanna play a Janken-pon(rock-paper-scissors) game ? Enter one of the "rock", "paper" or "scissor" values , If you enter any other value aside from these the round will result in a tie. To see results open "dev-tools console". Good luck !'
+    'Enter one of the "rock", "paper" or "scissor" values , If you enter any other value aside from these the round will result in a tie. To see results open "dev-tools console". Good luck !'
   );
   var userChoice = userChoice.toLowerCase();
 
@@ -94,7 +108,6 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
-console.log('~| RESULT OF THE GAME |~')
 console.log(`*Starting score is = You: ${humanScore} | Computer: ${computerScore}*`);
 
 function playRound(humanChoice, computerChoice) {
@@ -139,3 +152,48 @@ function playGame() {
         startRound();
     }
 }
+
+function finalScore() {
+    
+    if (humanScore > computerScore) {
+        console.log(`You won by "${humanScore}" points. You are a very smart cat !`);
+    } else if (humanScore < computerScore) {
+        console.log(`Computer won by "${computerScore}" points. Is it true that ai will take over the world ?`)
+    } else {
+        console.log('The match resulted in a draw. Try again !');
+    }
+}
+
+function startGame() {
+    var askToPlay = prompt('Heya visitor ! Wanna play a Janken-pon(rock-paper-scissors) game ? If so then enter "yes" below to start the game and if you are not in the mood enter "no". Good-luck !');
+    var askToPlay = askToPlay.toLowerCase();
+
+    console.log('~| RESULT OF THE GAME |~');
+
+    if (askToPlay == 'yes'){
+        playGame();
+        finalScore();
+        var askToPlayAgain = prompt('Hey again ! Wanna play the again ? If so then enter "yes" below to re-start the game and enter "no" if you dont want to play more. Good-luck again !');
+        var askToPlayAgain = askToPlayAgain.toLowerCase();
+        
+        switch (askToPlayAgain) {
+            case 'yes':
+                playGame();
+                finalScore();
+                alert('Thank-you for giving this a try')
+                break;
+            case 'no':
+                alert('Bye fella thanks for playing !');
+                break;
+            default:
+                alert('Invalid input, Enter either of "yes" or "no" only');
+        }
+    } else if (askToPlay == 'no') {
+        alert('Thank you so much for visiting ! If you change your mind and want to give this a try refresh the page. Otherwise have a nice day !');
+    } else {
+        alert('Invalid input, Enter either of "yes" or "no" only !');
+    }
+}
+
+
+startGame();
